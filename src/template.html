@@ -3,7 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Form Validation</title>
   </head>
-  <body></body>
+  <body>
+    <form novalidate>
+      <h2>Enter your support query</h2>
+      <ul>
+        <li>
+          <label for="email">User name:</label>
+          <input type="email" name="email" id="email" />
+        </li>
+        <li>
+          <label for="country">Email address:</label>
+          <input type="text" name="country" id="country" />
+        </li>
+        <li>
+          <label for="zip">Phone number:</label>
+          <input type="number" name="zip" id="zip" />
+        </li>
+        <li>
+          <label for="password">Comment:</label>
+          <input type="password" name="password" id="password" />
+        </li>
+        <li>
+          <label for="conf-psswrd">Comment:</label>
+          <input type="password" name="conf-psswrd" id="conf-psswrd" />
+        </li>
+        <li>
+          <button>Submit comment</button>
+        </li>
+      </ul>
+    </form>
+  </body>
 </html>
