@@ -10,8 +10,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      title: "Dynamic UI Interactions",
+      template: "./src/template.html",
+      title: "Form Validation",
       inject: "body",
     }),
   ],
