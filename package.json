@@ -1,7 +1,7 @@
 {
-  "name": "vanillajsprojecttemplate",
+  "name": "formvalidation",
   "version": "1.0.0",
-  "description": "This is a template repository for vanilla JS, HTML and CSS using webpack",
+  "description": "This is a project to practice form constraint validation using javascript",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
