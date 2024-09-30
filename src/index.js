@@ -8,6 +8,9 @@ const countryError = document.querySelector("#country + span.error");
 const zip = document.getElementById("zip");
 const zipError = document.querySelector("#zip + span.error");
 
+const password = document.getElementById("password");
+const passwordError = document.querySelector("#password + span.error");
+
 email.addEventListener("input", (event) => {
   if (email.validity.valid) {
     emailError.textContent = "";
@@ -30,6 +33,15 @@ zip.addEventListener("input", (event) => {
   if (zip.validity.valid) {
     zipError.textContent = "";
     zipError.className = "error";
+  } else {
+    showError();
+  }
+});
+
+password.addEventListener("input", (event) => {
+  if (password.validity.valid) {
+    passwordError.textContent = "";
+    passwordError.className = "error";
   } else {
     showError();
   }
@@ -73,13 +85,30 @@ function showError() {
     // display the following error message.
     zipError.textContent = "Entered value needs to be numerical.";
   } else if (zip.validity.patternMismatch) {
-    // If the data is too short,
+    // If the data does not match required pattern,
     // display the following error message.
     zipError.textContent = `Zip code should be 4 digits characters; you entered ${zip.value.length}.`;
+  }
+
+  if (password.validity.valueMissing) {
+    // If the field is empty,
+    // display the following error message.
+    passwordError.textContent = "You need to enter a valid password.";
+  } else if (password.validity.typeMismatch) {
+    // If the field doesn't contain an email address,
+    // display the following error message.
+    passwordError.textContent = "Entered value needs to be a password.";
+  } else if (password.validity.patternMismatch) {
+    // If the data does not match required pattern,
+    // display the following error message.
+    passwordError.textContent = `Password is invalid and must contain - at least 8 characters
+- must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
+- Can contain special characters`;
   }
 
   // Set the styling appropriately
   emailError.className = "error active";
   countryError.className = "error active";
   zipError.className = "error active";
+  passwordError.className = "error active";
 }
