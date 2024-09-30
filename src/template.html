@@ -43,11 +43,16 @@
         </li>
         <li>
           <label for="conf-psswrd">Confirm Password:</label>
-          <input type="password" name="conf-psswrd" id="conf-psswrd" />
+          <input
+            type="password"
+            name="conf-psswrd"
+            id="conf-psswrd"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+          />
           <span class="error" aria-live="polite"></span>
         </li>
         <li>
-          <button>Submit comment</button>
+          <button>Submit</button>
         </li>
       </ul>
     </form>
