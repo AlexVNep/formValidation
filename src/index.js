@@ -1,19 +1,19 @@
 import "./styles.css";
 const form = document.querySelector("form");
 const email = document.getElementById("email");
-const emailError = document.querySelector("#email + span.error");
+const emailError = document.querySelector(".emailSpan");
 
 const country = document.getElementById("country");
-const countryError = document.querySelector("#country + span.error");
+const countryError = document.querySelector(".countrySpan");
 
 const zip = document.getElementById("zip");
-const zipError = document.querySelector("#zip + span.error");
+const zipError = document.querySelector(".zipSpan");
 
 const password = document.getElementById("password");
-const passwordError = document.querySelector("#password + span.error");
+const passwordError = document.querySelector(".passwordSpan");
 
 const confirmPassword = document.getElementById("conf-psswrd");
-const matchPassword = document.querySelector("#conf-psswrd + span.error");
+const matchPassword = document.querySelector(".confirmPasswordSpan");
 
 email.addEventListener("input", (event) => {
   if (email.validity.valid) {
@@ -129,9 +129,7 @@ function showError() {
   } else if (password.validity.patternMismatch) {
     // If the data does not match required pattern,
     // display the following error message.
-    passwordError.textContent = `Password is invalid and must contain - at least 8 characters
-- must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
-- Can contain special characters`;
+    passwordError.textContent = `Password is invalid. Must contain 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number - Can contain special characters`;
   }
 
   if (confirmPassword.validity.valueMissing) {
