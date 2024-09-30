@@ -1,3 +1,4 @@
+import "./styles.css";
 const form = document.querySelector("form");
 const email = document.getElementById("email");
 const emailError = document.querySelector("#email + span.error");
@@ -10,6 +11,9 @@ const zipError = document.querySelector("#zip + span.error");
 
 const password = document.getElementById("password");
 const passwordError = document.querySelector("#password + span.error");
+
+const confirmPassword = document.getElementById("conf-psswrd");
+const matchPassword = document.querySelector("#conf-psswrd + span.error");
 
 email.addEventListener("input", (event) => {
   if (email.validity.valid) {
@@ -42,6 +46,15 @@ password.addEventListener("input", (event) => {
   if (password.validity.valid) {
     passwordError.textContent = "";
     passwordError.className = "error";
+  } else {
+    showError();
+  }
+});
+
+confirmPassword.addEventListener("input", (event) => {
+  if (confirmPassword.validity.valid) {
+    matchPassword.textContent = "";
+    matchPassword.className = "error";
   } else {
     showError();
   }
@@ -81,7 +94,7 @@ function showError() {
     // display the following error message.
     zipError.textContent = "You need to enter a valid zip.";
   } else if (zip.validity.typeMismatch) {
-    // If the field doesn't contain an email address,
+    // If the field doesn't contain a zip,
     // display the following error message.
     zipError.textContent = "Entered value needs to be numerical.";
   } else if (zip.validity.patternMismatch) {
@@ -95,7 +108,7 @@ function showError() {
     // display the following error message.
     passwordError.textContent = "You need to enter a valid password.";
   } else if (password.validity.typeMismatch) {
-    // If the field doesn't contain an email address,
+    // If the field doesn't contain an a password,
     // display the following error message.
     passwordError.textContent = "Entered value needs to be a password.";
   } else if (password.validity.patternMismatch) {
@@ -106,9 +119,22 @@ function showError() {
 - Can contain special characters`;
   }
 
+  if (confirmPassword.validity.valueMissing) {
+    // If the field is empty,
+    // display the following error message.
+    matchPassword.textContent = "You need to enter a valid password.";
+  } else if (confirmPassword.validity.typeMismatch) {
+    // If the field doesn't contain an a password
+    // display the following error message.
+    matchPassword.textContent = "Entered value needs to be a password.";
+  } else if (confirmPassword.value !== password.value) {
+    matchPassword.textContent = "Password does not match";
+  }
+
   // Set the styling appropriately
   emailError.className = "error active";
   countryError.className = "error active";
   zipError.className = "error active";
   passwordError.className = "error active";
+  matchPassword.className = "error active";
 }
