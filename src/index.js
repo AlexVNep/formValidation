@@ -60,6 +60,21 @@ confirmPassword.addEventListener("input", (event) => {
   }
 });
 
+form.addEventListener("submit", (event) => {
+  if (
+    !email.validity.valid ||
+    !country.validity.valid ||
+    !zip.validity.valid ||
+    !password.validity.valid ||
+    !confirmPassword.validity.valid
+  ) {
+    showError();
+    event.preventDefault();
+  } else {
+    console.log("I worked");
+  }
+});
+
 function showError() {
   if (email.validity.valueMissing) {
     // If the field is empty,
