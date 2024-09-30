@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="./styles.css" /> -->
     <title>Form Validation</title>
   </head>
   <body>
@@ -13,7 +12,6 @@
         <li>
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" />
-          <span class="error" aria-live="polite"></span>
         </li>
         <li>
           <label for="country">Country:</label>
@@ -24,12 +22,10 @@
             maxlength="60"
             minlength="4"
           />
-          <span class="error" aria-live="polite"></span>
         </li>
         <li>
           <label for="zip">Zip Code:</label>
           <input type="text" name="zip" id="zip" pattern="\d{4}-?(\d{4})?" />
-          <span class="error" aria-live="polite"></span>
         </li>
         <li>
           <label for="password">Password:</label>
@@ -39,7 +35,6 @@
             id="password"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
           />
-          <span class="error" aria-live="polite"></span>
         </li>
         <li>
           <label for="conf-psswrd">Confirm Password:</label>
@@ -49,12 +44,16 @@
             id="conf-psswrd"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
           />
-          <span class="error" aria-live="polite"></span>
-        </li>
-        <li>
-          <button>Submit</button>
         </li>
       </ul>
+      <div class="error-box">
+        <span class="error emailSpan" aria-live="polite"></span>
+        <span class="error countrySpan" aria-live="polite"></span>
+        <span class="error zipSpan" aria-live="polite"></span>
+        <span class="error passwordSpan" aria-live="polite"></span>
+        <span class="error confirmPasswordSpan" aria-live="polite"></span>
+      </div>
+      <button>Submit</button>
     </form>
   </body>
 </html>
