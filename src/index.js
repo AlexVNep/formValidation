@@ -26,6 +26,15 @@ country.addEventListener("input", (event) => {
   }
 });
 
+zip.addEventListener("input", (event) => {
+  if (zip.validity.valid) {
+    zipError.textContent = "";
+    zipError.className = "error";
+  } else {
+    showError();
+  }
+});
+
 function showError() {
   if (email.validity.valueMissing) {
     // If the field is empty,
@@ -63,7 +72,7 @@ function showError() {
     // If the field doesn't contain an email address,
     // display the following error message.
     zipError.textContent = "Entered value needs to be numerical.";
-  } else if (zip.validity.tooShort) {
+  } else if (zip.validity.patternMismatch) {
     // If the data is too short,
     // display the following error message.
     zipError.textContent = `Zip code should be 4 digits characters; you entered ${zip.value.length}.`;
